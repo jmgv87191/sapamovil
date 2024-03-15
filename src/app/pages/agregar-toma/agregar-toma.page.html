@@ -1,0 +1,43 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title >agregar-toma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="loader"  class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+  </div>
+
+  <div class="container" *ngIf="!loader" >
+    <div class="card border-success mb-3" style="max-width: 20rem;">
+      <div class="card-header">Agregar toma</div>
+      <div class="card-body">
+        <div>
+          
+          <form action="" [formGroup]="form" (ngSubmit)="addToma()" >
+
+            <div class="form-floating mb-3">
+              <input formControlName="cveusu" type="number" class="form-control" id="floatingInput" placeholder="Clave de usuario">
+              <label for="floatingInput">Clave de usuario</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <input formControlName="alias" type="text" class="form-control" id="floatingInput" placeholder="Alias">
+              <label for="floatingInput">Alias</label>
+            </div>
+  
+            <div class="cont_btns">
+              <button type="submit" class="btn btn-info btn-sm">Aceptar</button>
+              <button (click)="regresar()" type="button" class="btn btn-danger btn-sm">Regresar</button>
+            </div>
+
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

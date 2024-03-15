@@ -1,0 +1,7 @@
+{
+  "name": "sapa-movil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
