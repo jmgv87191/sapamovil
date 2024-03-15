@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonToast, IonButton, IonModal, IonButtons } from '@ionic/angular/standalone';
-import { Tomas } from '../interfaces/tomas';
+import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
 import { LoaderPage } from '../shared/loader/loader.page';
@@ -20,7 +20,6 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-
   /* modal */
 
   isModalOpen = false;
@@ -29,15 +28,21 @@ export class HomePage implements OnInit {
     this.isModalOpen = isOpen;
   }
 
-
-
   /* modal */
-
 
   listaTomas: Tomas[] = [];
   loader: boolean = false;
   form: FormGroup;
-  titulo: string = '';
+  currentDate: Date;
+  masDatos: MasTomas= {
+    alias: '',
+    cveusu: '',
+    direccion: '',
+    estatusContrato: '',
+    mesesAdeudo: '',
+    saldo: 0,
+    nombre: '',
+  };
 
   ngOnInit(): void {
     this.getTomas()
@@ -59,7 +64,9 @@ export class HomePage implements OnInit {
         cveusu: ['', Validators.required],
         alias: ['', Validators.required],
       })
-      
+
+      this.currentDate = new Date();
+
     }
 
     ionViewWillEnter() {
@@ -81,10 +88,25 @@ export class HomePage implements OnInit {
   }
 
   getMasTomas(id: number, open: boolean){
+
+    this.loader = true;
     this._tomasService.getMasTomas( id ).subscribe((data)=>{
       console.log('mas data', data)
-      this.titulo = data.usuario.cuenta;
+
+      this.masDatos ={
+        alias: data.toma.alias,
+        cveusu: data.toma.cveusu,
+        direccion: data.usuario.direccion,
+        estatusContrato: data.usuario.estatusContrato,
+        mesesAdeudo: data.usuario.mesesAdeudo,
+        saldo: data.usuario.saldo,
+        nombre: data.usuario.nombre
+      }
+
+      console.log(this.masDatos)
+
       this.isModalOpen = open;
+      this.loader = false;
     })
   }
 
