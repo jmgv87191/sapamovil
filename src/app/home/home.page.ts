@@ -93,6 +93,7 @@ export class HomePage implements OnInit {
     this._tomasService.getMasTomas( id ).subscribe((data)=>{
       console.log('mas data', data)
 
+      
       this.masDatos ={
         alias: data.toma.alias,
         cveusu: data.toma.cveusu,
