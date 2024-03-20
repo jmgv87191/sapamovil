@@ -20,4 +20,14 @@ export class HeaderPage  {
     this.router.navigate(['recaudacion'])
   }
 
+  onClick2(){
+    console.log('juan');
+    this.router.navigate(['pagos'])
+  }
+
+  onClick3(){
+    console.log('juan');
+    this.router.navigate(['tandeo'])
+  }
+
 }

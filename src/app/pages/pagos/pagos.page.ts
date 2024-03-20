@@ -10,11 +10,9 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class PagosPage implements OnInit {
+export class PagosPage  {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }
