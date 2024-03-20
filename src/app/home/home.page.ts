@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonToast, IonButton, IonModal, IonButtons } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonToast, IonButton,
+  IonModal, IonButtons,IonMenu, IonMenuButton } from '@ionic/angular/standalone';
 import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
@@ -7,6 +8,7 @@ import { LoaderPage } from '../shared/loader/loader.page';
 import { RouterLink } from '@angular/router';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { HeaderPage } from '../pages/header/header.page';
 
 
 @Component({
@@ -14,8 +16,8 @@ import { NavController } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, CommonModule, LoaderPage, RouterLink
-            ,ReactiveFormsModule
+  imports: [IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, 
+    CommonModule, LoaderPage, RouterLink,ReactiveFormsModule, IonMenu, IonMenuButton, HeaderPage
   ],
 })
 export class HomePage implements OnInit {

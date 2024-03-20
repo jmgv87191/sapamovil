@@ -1,16 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>header</ion-title>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>SAPA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
 
-    <ion-buttons slot="start">
-      <ion-back-button>juan</ion-back-button>
-    </ion-buttons>
+    
+    
+    <ion-list>
 
-  </ion-toolbar>
-</ion-header>
+      <ion-item>
+        <ion-icon routerLink="/recaudacion" name="navigate-circle-outline"></ion-icon>
+        <ion-input routerLink="/recaudacion" label="puntos de recaudacion" (click)="onClick()" ></ion-input>
+      </ion-item>
 
-<ion-content >
+      <ion-item>
+        <ion-icon name="wallet-outline"></ion-icon>
+        <ion-input label="pagar en linea"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-icon name="calendar-number-outline"></ion-icon>
+        <ion-input label="consulta de tandeo"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-icon name="call-outline"></ion-icon>
+        <ion-input label="reportar quejas y fugas"></ion-input>
+      </ion-item>
 
-</ion-content>
+    
+
+    </ion-list>
+
+  </ion-content>
+</ion-menu>
