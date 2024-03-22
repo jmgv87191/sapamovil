@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Tomas } from '../interfaces/tomas';
+import { Login, Tomas, ResponseI } from '../interfaces/tomas';
 
 
 
@@ -13,12 +13,13 @@ export class TomasService {
 
   private appUrl: string;
   private apiUrl: string;
-
+  private url: string;
 
   constructor( private http: HttpClient ) {
 
     this.apiUrl = "api/tomas";
     this.appUrl = environment.endpoint;
+    this.url = 'https://portaltest.sapalapaz.gob.mx/api/mobile/token';
 
   }
 
@@ -79,5 +80,13 @@ export class TomasService {
 
     return this.http.post<void>( (this.appUrl + this.apiUrl ), toma , options)
   }
+
+  loginByEmail(form:Login):Observable<ResponseI>{
+
+    let direccion = this.url  
+    return this.http.post<ResponseI>(direccion,form);
+
+  } 
+
 
 }

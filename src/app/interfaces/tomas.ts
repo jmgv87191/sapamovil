@@ -16,3 +16,13 @@ export interface MasTomas{
     saldo:number;
     nombre: string;
 }
+
+export interface Login{
+    email: string;
+    password: string;
+}
+
+export interface ResponseI{
+    status: string;
+    token: any;
+}

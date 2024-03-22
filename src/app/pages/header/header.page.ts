@@ -16,18 +16,19 @@ export class HeaderPage  {
   constructor( private router: Router ) { }
 
   onClick(){
-    console.log('juan');
     this.router.navigate(['recaudacion'])
   }
 
   onClick2(){
-    console.log('juan');
     this.router.navigate(['pagos'])
   }
 
   onClick3(){
-    console.log('juan');
     this.router.navigate(['tandeo'])
+  }
+
+  onClick4(){
+    this.router.navigate(['quejas-fugas'])
   }
 
 }

@@ -7,9 +7,10 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
+
   {
     path: 'header',
     loadComponent: () => import('./pages/header/header.page').then( m => m.HeaderPage)
@@ -37,5 +38,18 @@ export const routes: Routes = [
   {
     path: 'quejas-fugas',
     loadComponent: () => import('./pages/quejas-fugas/quejas-fugas.page').then( m => m.QuejasFugasPage)
+  },
+  {
+    path: 'header-comun',
+    loadComponent: () => import('./shared/header-comun/header-comun.page').then( m => m.HeaderComunPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
 ];

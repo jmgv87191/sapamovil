@@ -1,0 +1,45 @@
+<ion-content>
+
+
+  <div class="cont_principal">
+  
+    <ion-img class="imagen" src="assets/FOTO.jpg"></ion-img>
+  
+    <div class="formulario_inicio">
+  
+      <div class="contimagen_logo_sapa">
+        <ion-img class="imagen_logo_sapa " src="assets/LOGO SAPA-01.png"></ion-img>
+      </div>
+  
+      <div class="cont_inputs_login">
+
+        <form action="" [formGroup]="form" (ngSubmit)="onLogin(form.value)" >
+
+          <ion-input formControlName="email" mode="md" label="Nombre de Usuario" label-placement="floating"  fill="outline" placeholder="Nombre"></ion-input>
+    
+          <ion-input formControlName="password" type="password" mode="md" label="Contraseña" label-placement="floating" fill="outline" placeholder="Contraseña"></ion-input>
+
+          <input class="btn_enviar btn btn-outline-primary mb-2" type="submit">
+
+        </form>
+  
+        <p>Olvidaste tu Contraseña?</p>
+  
+        <p> <ion-icon name="person-add-outline"></ion-icon> Aun no tienes cuenta? <strong>Registrate</strong></p>
+  
+        <div class="redes_sociales">
+          <ion-button class="btn-redes-sociales" >
+            <ion-icon name="logo-facebook"></ion-icon> &nbsp; Facebook
+          </ion-button>
+          <ion-button class="btn-redes-sociales">
+            <ion-icon name="logo-google"></ion-icon> &nbsp; Gmail
+          </ion-button>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  </ion-content>
