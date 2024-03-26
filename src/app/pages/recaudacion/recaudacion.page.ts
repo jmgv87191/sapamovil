@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComunPage } from 'src/app/shared/header-comun/header-comun.page';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recaudacion',
@@ -11,8 +12,13 @@ import { HeaderComunPage } from 'src/app/shared/header-comun/header-comun.page';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, HeaderComunPage]
 })
-export class RecaudacionPage  {
+export class RecaudacionPage implements OnInit  {
 
-  constructor() { }
+  constructor(  private aRouter: ActivatedRoute ) { }
+
+
+  ngOnInit(){
+    console.log( this.aRouter.snapshot.paramMap.get('id') )
+  }
 
 }

@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Login, Tomas, ResponseI } from '../interfaces/tomas';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +25,7 @@ export class TomasService {
 
   getTomas():Observable< Tomas[] >{
 
-    let miStorage = "h2Ca6m0OTdaDixhnPxwqNRWfqQFzXDhi1z0Wh8DO"
+    let miStorage = window.localStorage['token'];
 
     const options = {
       method: 'GET',
@@ -40,7 +39,7 @@ export class TomasService {
 
   getMasTomas( id:number ):Observable< any >{
 
-    let miStorage = "h2Ca6m0OTdaDixhnPxwqNRWfqQFzXDhi1z0Wh8DO"
+    let miStorage = window.localStorage['token'];
 
     const options = {
       method: 'GET',
@@ -55,7 +54,7 @@ export class TomasService {
 
   deleteTomas( id:number ):Observable<void> {
 
-    let miStorage = "h2Ca6m0OTdaDixhnPxwqNRWfqQFzXDhi1z0Wh8DO"
+    let miStorage = window.localStorage['token'];
 
     const options = {
       method: 'GET',
@@ -69,7 +68,7 @@ export class TomasService {
 
   postTomas( toma: Tomas ): Observable<void>{
 
-    let miStorage = "h2Ca6m0OTdaDixhnPxwqNRWfqQFzXDhi1z0Wh8DO"
+    let miStorage = window.localStorage['token'];
 
     const options = {
       method: 'GET',
@@ -87,6 +86,7 @@ export class TomasService {
     return this.http.post<ResponseI>(direccion,form);
 
   } 
+
 
 
 }

@@ -5,7 +5,7 @@ import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
 import { LoaderPage } from '../shared/loader/loader.page';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
@@ -59,7 +59,8 @@ export class HomePage implements OnInit {
 
   constructor( private _tomasService: TomasService,
     private fb: FormBuilder,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
     ) {
 
       this.form = this.fb.group({
@@ -85,7 +86,6 @@ export class HomePage implements OnInit {
   getTomas(){
     this._tomasService.getTomas().subscribe((data)=>{
       this.listaTomas = data;
-      console.log(data)
     })
   }
 
@@ -121,6 +121,12 @@ export class HomePage implements OnInit {
       this.getTomas();
       this.loader = false;
     })  
+  }
+
+  onClick(){
+    this.router.navigate(['/login'])
+    localStorage.removeItem('token');
+
   }
 
 

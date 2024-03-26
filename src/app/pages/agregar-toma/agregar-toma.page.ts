@@ -17,6 +17,9 @@ export class AgregarTomaPage implements OnInit {
 
   form: FormGroup;
   loader: boolean = false;
+  clavesUsadas: number[] = []
+  cachedData: any;
+  errorMessageVariable: string = ''
 
   constructor(  private fb: FormBuilder, 
     private _tomasService: TomasService,
@@ -30,27 +33,51 @@ export class AgregarTomaPage implements OnInit {
 
   }
 
+
+
   addToma(){
-    this.loader = true;
+    
+      this.loader = true;
 
-    const toma: Tomas ={
-      cveusu: this.form.value.cveusu,
-      alias: this.form.value.alias
-    }
+      const toma: Tomas ={
+        cveusu: this.form.value.cveusu,
+        alias: this.form.value.alias
+      }
+      console.log(Number(toma.cveusu))
 
-    this._tomasService.postTomas( toma ). subscribe(()=>{
-      this.router.navigate(['/home'])
-      this.loader = false;
-    })
+      if ( this.clavesUsadas.includes(Number(toma.cveusu)) ) {
+
+        console.log(' calve en uso')
+        window.location.reload();
+      
+
+      } else {
+        this._tomasService.postTomas( toma ). subscribe(()=>{
+          this.router.navigate(['/home'])
+          this.loader = false;
+        })
+      }
+
   }
 
 
   ngOnInit() {
-    form: FormGroup;
+
+    this._tomasService.getTomas().subscribe((data)=>{
+
+      for (let i = 0; i < data.length; i++) {
+        this.clavesUsadas.push(Number(data[i].cveusu))  
+      }
+
+        console.log(this.clavesUsadas)
+
+    })
   }
 
   regresar(){
     this.router.navigate(['/home'])
   }
+
+  
 
 }
