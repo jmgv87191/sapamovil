@@ -6,6 +6,10 @@ import { TomasService } from 'src/app/services/tomas.service';
 import { Tomas } from 'src/app/interfaces/tomas';
 import { Router } from '@angular/router';
 
+
+import { HttpErrorResponse } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-agregar-toma',
   templateUrl: './agregar-toma.page.html',
@@ -17,7 +21,6 @@ export class AgregarTomaPage implements OnInit {
 
   form: FormGroup;
   loader: boolean = false;
-  clavesUsadas: number[] = []
   cachedData: any;
   errorMessageVariable: string = ''
 
@@ -33,8 +36,6 @@ export class AgregarTomaPage implements OnInit {
 
   }
 
-
-
   addToma(){
     
       this.loader = true;
@@ -43,20 +44,28 @@ export class AgregarTomaPage implements OnInit {
         cveusu: this.form.value.cveusu,
         alias: this.form.value.alias
       }
+
       console.log(Number(toma.cveusu))
 
-      if ( this.clavesUsadas.includes(Number(toma.cveusu)) ) {
-
-        console.log(' calve en uso')
-        window.location.reload();
+      this._tomasService.postTomas( toma ). subscribe(()=>{
+        this.router.navigate(['/home'])
+        this.loader = false;
+      },
       
-
-      } else {
-        this._tomasService.postTomas( toma ). subscribe(()=>{
-          this.router.navigate(['/home'])
-          this.loader = false;
-        })
+      (error: HttpErrorResponse) => {
+        if (error.status === 403) {
+          console.error('La clave ya fue registrada por un uzzzsuario');
+          this.errorMessageVariable = 'La clave ya fue registrada por un usuario';
+        setTimeout(() => {
+          console.log(this.errorMessageVariable)
+        }, 1000);
+        } else {
+          console.error('Error al agregar la toma:', error.message);
+          this.errorMessageVariable = 'Ocurrió un error al agregar la toma. Por favor, inténtalo de nuevo más tarde.';
+        }
+        this.loader = false;
       }
+    );
 
   }
 
@@ -64,12 +73,6 @@ export class AgregarTomaPage implements OnInit {
   ngOnInit() {
 
     this._tomasService.getTomas().subscribe((data)=>{
-
-      for (let i = 0; i < data.length; i++) {
-        this.clavesUsadas.push(Number(data[i].cveusu))  
-      }
-
-        console.log(this.clavesUsadas)
 
     })
   }
