@@ -5,10 +5,10 @@ import { IonicModule, RouterCustomEvent } from '@ionic/angular';
 import { TomasService } from 'src/app/services/tomas.service';
 import { Tomas } from 'src/app/interfaces/tomas';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 
 import { HttpErrorResponse } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-agregar-toma',
@@ -22,11 +22,12 @@ export class AgregarTomaPage implements OnInit {
   form: FormGroup;
   loader: boolean = false;
   cachedData: any;
-  errorMessageVariable: string = ''
+  errorMessageVariable: string = '';
 
   constructor(  private fb: FormBuilder, 
     private _tomasService: TomasService,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
     ) {
 
     this.form = this.fb.group({
@@ -45,8 +46,6 @@ export class AgregarTomaPage implements OnInit {
         alias: this.form.value.alias
       }
 
-      console.log(Number(toma.cveusu))
-
       this._tomasService.postTomas( toma ). subscribe(()=>{
         this.router.navigate(['/home'])
         this.loader = false;
@@ -56,9 +55,12 @@ export class AgregarTomaPage implements OnInit {
         if (error.status === 403) {
           console.error('La clave ya fue registrada por un uzzzsuario');
           this.errorMessageVariable = 'La clave ya fue registrada por un usuario';
-        setTimeout(() => {
           console.log(this.errorMessageVariable)
-        }, 1000);
+
+
+          this.presentAlert()
+
+          
         } else {
           console.error('Error al agregar la toma:', error.message);
           this.errorMessageVariable = 'Ocurrió un error al agregar la toma. Por favor, inténtalo de nuevo más tarde.';
@@ -81,6 +83,14 @@ export class AgregarTomaPage implements OnInit {
     this.router.navigate(['/home'])
   }
 
-  
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'La clave ya fue registrada por un usuario',
+      buttons: ['Aceptar'],
+    });
+
+    await alert.present();
+  }
+
 
 }
