@@ -2,24 +2,32 @@
 
 
   <div class="cont_principal">
+
   
-    <ion-img class="imagen" src="assets/FOTO.jpg"></ion-img>
-  
+    <img class="imagen" src="assets/FOTO.jpg">
+    
     <div class="formulario_inicio">
   
       <div class="contimagen_logo_sapa">
-        <ion-img class="imagen_logo_sapa " src="assets/LOGO SAPA-01.png"></ion-img>
+        <img class="imagen_logo_sapa " src="assets/LOGO SAPA-01.png">
       </div>
   
       <div class="cont_inputs_login">
 
         <form action="" [formGroup]="form" (ngSubmit)="onLogin(form.value)" >
-
-          <ion-input formControlName="email" mode="md" label="Nombre de Usuario" label-placement="floating"  fill="outline" placeholder="Nombre"></ion-input>
     
-          <ion-input formControlName="password" type="password" mode="md" label="Contraseña" label-placement="floating" fill="outline" placeholder="Contraseña"></ion-input>
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="text" class="form-control" id="floatingInput" placeholder="Clave de usuario">
+            <label for="floatingInput">Nombre de Usuario</label>
+          </div>
 
-          <input class="btn_enviar btn btn-outline-primary mb-2" type="submit">
+    
+          <div class="form-floating mb-3">
+            <input formControlName="password" type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+            <label for="floatingInput">Contraseña</label>
+          </div>
+
+          <button type="submit" class="btn_enviar btn btn-primary mb-2">Aceptar</button>
 
         </form>
   
