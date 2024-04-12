@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonToast, IonButton,
-  IonModal, IonButtons,IonMenu, IonMenuButton } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonToast, IonButton,
+  IonModal, IonButtons,IonMenu, IonMenuButton,IonIcon, IonFooter, IonInput, IonList, IonLabel, IonItem } from '@ionic/angular/standalone';
 import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
@@ -11,15 +11,19 @@ import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
 
 
+import {heart} from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, 
+  imports: [IonItem, IonLabel, IonList, IonInput, IonFooter, IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, 
     CommonModule, LoaderPage, RouterLink,ReactiveFormsModule, IonMenu, IonMenuButton, HeaderPage
   ],
 })
+
 export class HomePage implements OnInit {
 
   /* modal */
@@ -60,8 +64,10 @@ export class HomePage implements OnInit {
   constructor( private _tomasService: TomasService,
     private fb: FormBuilder,
     private navCtrl: NavController,
-    private router: Router
+    private router: Router,
     ) {
+
+      addIcons({heart})
 
       this.form = this.fb.group({
         cveusu: ['', Validators.required],
@@ -129,6 +135,20 @@ export class HomePage implements OnInit {
 
   }
 
+  onClick1(){
+    this.router.navigate(['recaudacion'])
+  }
 
+  onClick2(){
+    this.router.navigate(['pagos'])
+  }
+
+  onClick3(){
+    this.router.navigate(['tandeo'])
+  }
+
+  onClick4(){
+    this.router.navigate(['quejas-fugas'])
+  }
 
 }

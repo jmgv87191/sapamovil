@@ -7,7 +7,6 @@ import { Tomas } from 'src/app/interfaces/tomas';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
-
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

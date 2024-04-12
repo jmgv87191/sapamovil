@@ -6,6 +6,10 @@ import { TomasService } from 'src/app/services/tomas.service';
 import { ResponseI } from '../../interfaces/tomas'
 import { Router } from '@angular/router';
 
+import {heart,personAddOutline,logoFacebook, logoGoogle} from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -18,6 +22,8 @@ export class LoginPage  {
   form:FormGroup;
 
   constructor( private fb: FormBuilder, private api: TomasService, private router: Router ){
+
+    addIcons({heart,personAddOutline,logoFacebook,logoGoogle })
 
     this.form = this.fb.group({
       email: ['jmgv87191@gmail.com', Validators.required],

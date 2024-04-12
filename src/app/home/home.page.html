@@ -1,44 +1,62 @@
 
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="onClick()" >Cerrar sesion</ion-button>
-    </ion-buttons>
-    <ion-title>Menu</ion-title>
-    
-  </ion-toolbar>
-</ion-header>
 
+  <ion-content >
 
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button (click)="onClick()" >Cerrar sesion</ion-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+
+          <ion-list>
+
+            <ion-item>
+              <ion-icon name="navigate-circle-outline"></ion-icon>
+              <ion-input label="puntos de recaudacion" (click)="onClick1()" ></ion-input>
+            </ion-item>
       
-    </ion-toolbar>
-  </ion-header>
+            <ion-item>
+              <ion-icon name="wallet-outline"></ion-icon>
+              <ion-input label="pagar en linea" (click)="onClick2()"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-icon name="calendar-number-outline"></ion-icon>
+              <ion-input label="consulta de tandeo" (click)="onClick3()"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-input label="reportar quejas y fugas" (click)="onClick4()"></ion-input>
+            </ion-item>
+      
+          
+      
+          </ion-list>
 
-
-  <ion-content  >
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">This is the menu content.</ion-content>
+    </ion-menu>
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="onClick()" >Cerrar sesion</ion-button>
+          </ion-buttons>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
     
     <div *ngIf="loader"  class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
     </div>
   
-    <h1 *ngIf="!loader" class="text-center">Tomas registradas</h1>
+    <h1 *ngIf="!loader" class="text-center">Tomas registradas </h1>
   
-    <div class="container"  *ngIf="!loader" >
-  
-      <table class="table table-hover" *ngIf="listaTomas.length > 0" >
+    <table class="table table-hover mt-5" *ngIf="listaTomas.length > 0" >
   
         <thead>
           <tr>
@@ -73,6 +91,7 @@
           }
       
         </tbody>
+
       </table>
       
   
@@ -129,13 +148,18 @@
   
   
   
-    </div>
   
   </ion-content>
-  <button routerLink="/agregar-toma" class="btn btn-lg btn-primary" type="button">Agregar toma</button>
 
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title>        
+        
+        <button routerLink="/agregar-toma" class="btn btn-lg btn-primary" type="button">Agregar toma</button>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
 
-</div>
 
 
 
