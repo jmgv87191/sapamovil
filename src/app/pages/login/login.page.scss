@@ -39,7 +39,7 @@
 }
 
 .cont_inputs_login{
-    width: 90%;
+    min-width: 90%;
     height: 70%;
     display: flex;
     flex-direction: column;
@@ -81,4 +81,18 @@ ion-input {
 
 .btn_enviar{
     width: 100%;
+}
+
+@media (min-aspect-ratio: 8/9) {
+    .formulario_inicio {
+        height: 90%;
+    }
+
+    p{
+        display: none;
+    }
+
+    .redes_sociales{
+        display: none;
+    }
 }

@@ -30,8 +30,9 @@ export class LoginPage  {
       password: ['contraseña123', Validators.required],
       device_name: ['toma1', Validators.required],
     })
-
   }
+
+
 
   errorStatus: boolean = false;
   errorMsj: any = "";

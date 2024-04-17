@@ -11,8 +11,9 @@ import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
 
 
-import {heart} from 'ionicons/icons';
+import {heart,trashOutline,addCircleOutline} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+
 
 @Component({
   selector: 'app-home',
@@ -67,7 +68,7 @@ export class HomePage implements OnInit {
     private router: Router,
     ) {
 
-      addIcons({heart})
+      addIcons({heart,trashOutline,addCircleOutline})
 
       this.form = this.fb.group({
         cveusu: ['', Validators.required],
