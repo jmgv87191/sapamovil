@@ -64,10 +64,9 @@
       
               <thead *ngIf="!loader" >
                 <tr>
-                  <th scope="col">Ids</th>
-                  <th scope="col">Clave de usuario</th>
-                  <th scope="col">Alias</th>
-                  <th scope="col"></th>
+                  <th class="text-center" scope="col">Clave de usuario</th>
+                  <th class="text-center" scope="col">Alias</th>
+                  <th class="text-center" scope="col"></th>
                 </tr>
               </thead>
               
@@ -76,9 +75,8 @@
                 @for (item of listaTomas; track $index) {
         
                   <tr class="table-secondary">
-                    <td> {{ item.id }} </td>
-                    <td> {{ item.cveusu }} </td>
-                    <td> {{ item.alias }} </td>
+                    <td class="text-center"> {{ item.cveusu }} </td>
+                    <td  class="text-center">  {{ item.alias }} </td>
                     <td class="cont_btns" > 
                       <button style="background-color: transparent;" type="button" (click)="getMasTomas(item.id!, true)"><ion-icon style="color: rgb(14, 85, 14); font-size: 30px;" name="add-circle-outline"></ion-icon> </button>
                       <button style="background-color: transparent;" id="open-toast" (click)="deleteTomas(item.id!)" type="button"><ion-icon style="color: rgb(182, 42, 42); font-size: 30px;" name="trash-outline"></ion-icon> </button>

@@ -30,7 +30,8 @@
 
 .cont_btns{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  
 }
 
 .container{
@@ -55,7 +56,6 @@ ion-content{
 }
 
 ion-icon{
-  margin-right: 20px;
 }
 
 ion-item{
