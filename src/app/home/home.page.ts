@@ -39,6 +39,7 @@ export class HomePage implements OnInit {
   /* modal */
 
   isModalOpen = false;
+  statusCortado: boolean = false;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -124,6 +125,14 @@ export class HomePage implements OnInit {
       }
 
       console.log(this.masDatos)
+
+      if (this.masDatos.estatusContrato === 'Cortado') {
+        this.statusCortado = true;
+        console.log(this.statusCortado)
+      } else {
+        this.statusCortado = false;
+        console.log(this.statusCortado)
+      }
 
       this.isModalOpen = open;
       this.loader = false;

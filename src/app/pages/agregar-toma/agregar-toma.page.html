@@ -1,11 +1,17 @@
 <ion-header  >
   <ion-toolbar >
 
-    <ion-buttons slot="start"  >
-      <ion-back-button text="Regresar" style="color: rgb(46, 46, 46);" defaultHref="/home" ></ion-back-button>
+    <ion-buttons slot="start" style="margin-left: 10px;"  >
+      <ion-back-button  style="color: rgb(46, 46, 46); font-weight: bolder;" defaultHref="/home" >Regresar</ion-back-button>
     </ion-buttons>
 
-    <ion-title class="header" >Agregar toma</ion-title>
+    <ion-title class="header text-center"  >
+      <img class="logo-sapa-menu" style="width: 40px;" src="../../assets/LOGO SAPA-01.png" alt="">  
+    </ion-title>
+
+    <ion-buttons slot="end" style="margin-right: 10px;" >
+      <ion-back-button  style="visibility: hidden;" defaultHref="/home" >Regresar</ion-back-button>
+    </ion-buttons>
 
   </ion-toolbar>
 </ion-header>
@@ -20,7 +26,7 @@
   
       <div class="container" *ngIf="!loader" >
         <div class="card border-success mb-3" style="max-width: 20rem;">
-          <div class="card-header">Agregar toma</div>
+          <div class="card-header text-center" style="font-weight: bold;" >Agregar toma</div>
           <div class="card-body">
             <div>
               
@@ -36,10 +42,10 @@
                   <label for="floatingInput">Alias</label>
                 </div>
       
-                <div class="cont_btns">
-                  <button type="submit" class="btn btn-info btn-sm">Aceptar</button>
-                  <button (click)="regresar()" type="button" class="btn btn-danger btn-sm">Regresar</button>
-                </div>
+                <div class="cont_btns"  >
+                  <button  type="submit" class="btn  btn-sm boton">Aceptar</button>
+<!--                   <button (click)="regresar()" type="button" class="btn btn-danger btn-sm">Regresar</button>
+ -->                </div>
     
               </form>
     
@@ -50,6 +56,7 @@
       </div>
       
     }@else {
+
       <div class="cont_msj_error">
   
         <div class="card card_error">
@@ -62,8 +69,6 @@
             </div>
           </div>
         </div>
-  
-  
   
       </div>
     }
@@ -79,3 +84,4 @@
 
   
 </ion-content>
+

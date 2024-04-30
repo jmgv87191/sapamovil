@@ -14,23 +14,23 @@
       <ion-list>
 
         <ion-item>
-          <ion-icon name="navigate-circle-outline"></ion-icon>
-          <ion-input label="puntos de recaudacion" (click)="onClick1()" ></ion-input>
+          <ion-icon class="icon" name="navigate-circle-outline"></ion-icon>
+          <ion-input label="Recaudacion" (click)="onClick1()" ></ion-input>
         </ion-item>
   
         <ion-item>
-          <ion-icon name="wallet-outline"></ion-icon>
-          <ion-input label="pagar en linea" (click)="onClick2()"></ion-input>
+          <ion-icon class="icon" name="wallet-outline"></ion-icon>
+          <ion-input label="Pagar en linea" (click)="onClick2()"></ion-input>
         </ion-item>
   
         <ion-item>
-          <ion-icon name="calendar-number-outline"></ion-icon>
-          <ion-input label="consulta de tandeo" (click)="onClick3()"></ion-input>
+          <ion-icon class="icon" name="calendar-number-outline"></ion-icon>
+          <ion-input label="Tandeo" (click)="onClick3()"></ion-input>
         </ion-item>
   
         <ion-item>
-          <ion-icon name="call-outline"></ion-icon>
-          <ion-input label="reportar quejas y fugas" (click)="onClick4()"></ion-input>
+          <ion-icon class="icon" name="call-outline"></ion-icon>
+          <ion-input label="Quejas y fugas" (click)="onClick4()"></ion-input>
         </ion-item>
   
       
@@ -129,11 +129,18 @@
     <ion-modal [isOpen]="isModalOpen">
       <ng-template>
         <ion-header>
-          <ion-toolbar>
-            <ion-title></ion-title>
-            <ion-buttons slot="end">
-              <ion-button (click)="setOpen(false)">Close</ion-button>
+          <ion-toolbar class="text-center" >
+
+              <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/LOGO SAPA-01.png" alt="">  
+
+            <ion-buttons style="visibility: hidden;" slot="end">
+              <ion-button (click)="setOpen(false)">Regresar</ion-button>
             </ion-buttons>
+
+            <ion-buttons slot="start">
+              <ion-button (click)="setOpen(false)">Regresar</ion-button>
+            </ion-buttons>
+
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
@@ -144,21 +151,30 @@
             <h3 style="margin-bottom: 5vh;" class="card-header text-center">{{ masDatos.alias }}</h3>
   
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Nombre:  {{ masDatos.nombre }} </li>
-              <li class="list-group-item">Direccion:  {{ masDatos.direccion }} </li>
-              <li class="list-group-item">Clave de usuario:  {{ masDatos.cveusu }} </li>
-              <li class="list-group-item">Estatus:  {{ masDatos.estatusContrato }} </li>
-              <li class="list-group-item">Adeudo:  {{ masDatos.mesesAdeudo }} </li>
-              <li class="list-group-item">Saldo:  {{ masDatos.saldo }} </li>
+              <li class="list-group-item"> <span>Nombre:  </span>  <span class="texto-span" >{{ masDatos.nombre }}</span>  </li>
+              <li class="list-group-item"> <span>Direccion:  </span>  <span class="texto-span">{{ masDatos.direccion }} </span> </li>
+              <li class="list-group-item"> <span>Clave de usuario:  </span >  <span class="texto-span">{{ masDatos.cveusu }}</span>  </li>
+              
+              @if ( statusCortado  ) {
+                <li class="list-group-item"> <span>Estatus:  </span>   <span style="color: red;" class="texto-span">{{ masDatos.estatusContrato }}</span> </li>
+              }@else{
+                <li class="list-group-item"> <span>Estatus:  </span>   <span class="texto-span">{{ masDatos.estatusContrato }}</span> </li>
+              }
+              <li class="list-group-item"> <span>Adeudo:  </span>  <span class="texto-span">{{ masDatos.mesesAdeudo }}</span>  </li>
+              <li class="list-group-item"> <span>Saldo:  </span>   <span class="texto-span">{{ masDatos.saldo }}</span> </li>
             </ul>
   
             <div class="card-footer text-muted text-end">
               {{ currentDate | date: 'dd/MM/yyyy' }}
             </div>
           </div>
-  
         </ion-content>
+        <ion-footer >
+          <ion-toolbar  class="text-center" > 
+          </ion-toolbar>
+        </ion-footer>
       </ng-template>
+      
     </ion-modal>
   
       <!-- ! ion modal -->
