@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
 
 
-import {heart,trashOutline,addCircleOutline, navigateCircleOutline, walletOutline, calendarNumberOutline, callOutline} from 'ionicons/icons';
+import {heart,trashOutline,addCircleOutline, navigateCircleOutline, walletOutline, calendarNumberOutline, callOutline, eyeOutline} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
@@ -78,7 +78,7 @@ export class HomePage implements OnInit {
     ) {
 
       addIcons({heart,trashOutline,addCircleOutline, navigateCircleOutline,
-      walletOutline,calendarNumberOutline,callOutline})
+      walletOutline,calendarNumberOutline,callOutline, eyeOutline})
 
       this.form = this.fb.group({
         cveusu: ['', Validators.required],
