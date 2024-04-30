@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonToast, IonButton,
-  IonModal, IonButtons,IonMenu, IonMenuButton,IonIcon, IonFooter, IonInput, IonList, IonLabel, IonItem } from '@ionic/angular/standalone';
+  IonModal, IonButtons,IonMenu, IonMenuButton,IonIcon, IonFooter, IonInput, IonList, IonLabel, IonItem, IonApp } from '@ionic/angular/standalone';
 import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
@@ -11,8 +11,10 @@ import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
 
 
-import {heart,trashOutline,addCircleOutline} from 'ionicons/icons';
+import {heart,trashOutline,addCircleOutline, navigateCircleOutline, walletOutline, calendarNumberOutline, callOutline} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 
 @Component({
@@ -20,12 +22,19 @@ import { addIcons } from 'ionicons';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonItem, IonLabel, IonList, IonInput, IonFooter, IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, 
-    CommonModule, LoaderPage, RouterLink,ReactiveFormsModule, IonMenu, IonMenuButton, HeaderPage
+  imports: [IonApp, IonItem, IonLabel, IonList, IonInput, IonFooter, IonButtons, IonModal, IonButton, IonToast, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, 
+    CommonModule, LoaderPage, RouterLink,ReactiveFormsModule, 
+    IonMenu, IonMenuButton, HeaderPage
   ],
+  providers: [
+    provideAnimations(), // required animations providers
+  ],
+
 })
 
+
 export class HomePage implements OnInit {
+
 
   /* modal */
 
@@ -68,7 +77,8 @@ export class HomePage implements OnInit {
     private router: Router,
     ) {
 
-      addIcons({heart,trashOutline,addCircleOutline})
+      addIcons({heart,trashOutline,addCircleOutline, navigateCircleOutline,
+      walletOutline,calendarNumberOutline,callOutline})
 
       this.form = this.fb.group({
         cveusu: ['', Validators.required],
@@ -151,5 +161,8 @@ export class HomePage implements OnInit {
   onClick4(){
     this.router.navigate(['quejas-fugas'])
   }
+
+
+
 
 }

@@ -9,10 +9,49 @@
     justify-content: space-evenly;
 }
 
-ion-title{
+
+.cont_msj_error{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.card_error{
+    margin-top: 50%;
+    height: 20%;
+}
+
+.btn_error{
+    display: flex;
+    justify-content: center;
+}
+.cont_btns_error{
+    display: flex;
+    justify-content: center;
+}
+
+.progress_content{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.encabezado{
+    top: -100px;
+    width: 100%;
+    height: 7%;
     background: rgb(156,210,154);
     background: -moz-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
     background: -webkit-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
     background: linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9cd29a",endColorstr="#85c34d",GradientType=1);
+    color:  black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

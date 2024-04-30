@@ -31,7 +31,10 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss","node_modules/ngx-toastr/toastr.css" ],
+            "styles": ["src/global.scss", 
+            "src/theme/variables.scss",
+            "node_modules/ngx-toastr/toastr.css"
+          ],
             "scripts": []
           },
           "configurations": {

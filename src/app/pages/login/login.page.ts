@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 
 import {heart,personAddOutline,logoFacebook, logoGoogle} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-
+import { HttpErrorResponse } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +21,21 @@ import { addIcons } from 'ionicons';
 export class LoginPage  {
 
   form:FormGroup;
+  loader: boolean = false;
+  pantallaError: boolean = true;
 
-  constructor( private fb: FormBuilder, private api: TomasService, private router: Router ){
+
+  isAlertOpen = false;
+  alertButtons = ['Action'];
+
+
+  constructor( private fb: FormBuilder, 
+    private api: TomasService, 
+    private router: Router,
+    private alertController: AlertController,
+    private renderer: Renderer2
+
+    ){
 
     addIcons({heart,personAddOutline,logoFacebook,logoGoogle })
 
@@ -36,6 +50,8 @@ export class LoginPage  {
 
   errorStatus: boolean = false;
   errorMsj: any = "";
+  errorMessageVariable: string = '';
+
 
 
   onLogin(form: any){
@@ -52,9 +68,45 @@ export class LoginPage  {
         this.errorMsj = "Error"
       }
     
+    },
+    
+    (error: HttpErrorResponse) => {
+      if (error.status === 422) {
+
+          console.error('Usuario o contraseña incorrectos');
+          this.errorMessageVariable = 'Usuario o contraseña incorrectossas ';
+          console.log(this.errorMessageVariable)
+
+          this.pantallaError = false
+      
+        
+      } else {
+        console.error('Usuario o contraseña incorrectos:', error.message);
+        this.errorMessageVariable = 'Ocurrió un error Usuario o contraseña. Por favor, inténtalo de nuevo más tarde.';
+      }
+      this.loader = false;
     }
+
     )
+
   }
+
+  
+    ocultar() {
+      this.pantallaError = true
+    }
+  
+  
+
+
+
+
+
+
+
+
+
+
 
 
 }

@@ -47,15 +47,82 @@ table{
   top: 5vh;
 }
 
-ion-title{
+
+ion-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-icon{
+  margin-right: 20px;
+}
+
+ion-item{
+  margin-bottom: 40px;
+}
+
+.progress{
+  width: 80%;
+  
+}
+
+.cont_table{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+table{
+  width: 95%;
+}
+
+.cont_loader{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clase_menu{
   background: rgb(156,210,154);
   background: -moz-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
   background: -webkit-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
   background: linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9cd29a",endColorstr="#85c34d",GradientType=1);
+  width: 100%;
+  height: 150px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding: 0;
+  margin: 0;
+}
 
+
+
+.cont_header{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(158, 144, 144);
+  height: 100%;
 }
 
 ion-header {
-  --background: #ff0000; // Cambia el color de fondo para iOS en modo claro
+  ion-toolbar {
+    // set background color
+    --background: rgb(156,210,154);
+    --background: -moz-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
+    --background: -webkit-linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
+    --background: linear-gradient(45deg, rgba(156,210,154,1) 0%, rgba(133,195,77,1) 29%);
+    --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9cd29a",endColorstr="#85c34d",GradientType=1);
+    // set icon/text color
+    --color: #ffffff;
+  }
 }

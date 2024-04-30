@@ -1,52 +1,69 @@
 <ion-content>
 
-
-  <div class="cont_principal">
-
-  
-    <img class="imagen" src="assets/FOTO.jpg">
+  @if (pantallaError) {
+    <div class="cont_principal ">
+      
     
-    <div class="formulario_inicio">
-  
-      <div class="contimagen_logo_sapa">
-        <img class="imagen_logo_sapa " src="assets/LOGO SAPA-01.png">
-      </div>
-  
-      <div class="cont_inputs_login">
-
-        <form action="" [formGroup]="form" (ngSubmit)="onLogin(form.value)" >
+      <img class="imagen" src="assets/FOTO.jpg">
+      
+      <div class="formulario_inicio">
     
-          <div class="form-floating mb-3">
-            <input formControlName="email" type="text" class="form-control" id="floatingInput" placeholder="Clave de usuario">
-            <label for="floatingInput">Nombre de Usuario</label>
-          </div>
-
-    
-          <div class="form-floating mb-3">
-            <input formControlName="password" type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
-            <label for="floatingInput">Contraseña</label>
-          </div>
-
-          <button type="submit" class="btn_enviar btn btn-primary mb-2">Aceptar</button>
-
-        </form>
-  
-        <p>Olvidaste tu Contraseña?</p>
-        <p> <ion-icon name="person-add-outline"></ion-icon> Aun no tienes cuenta? <strong>Registrate</strong></p>
-  
-        <div class="redes_sociales">
-          <ion-button class="btn-redes-sociales" >
-            <ion-icon name="logo-facebook"></ion-icon> &nbsp; Facebook
-          </ion-button>
-          <ion-button class="btn-redes-sociales">
-            <ion-icon name="logo-google"></ion-icon> &nbsp; Gmail
-          </ion-button>
+        <div class="contimagen_logo_sapa">
+          <img class="imagen_logo_sapa " src="assets/LOGO SAPA-01.png">
         </div>
+    
+        <div class="cont_inputs_login">
   
+          <form action="" [formGroup]="form" (ngSubmit)="onLogin(form.value)" >
+      
+            <div class="form-floating mb-3">
+              <input formControlName="email" type="text" class="form-control" id="floatingInput" placeholder="Clave de usuario">
+              <label for="floatingInput">Nombre de Usuario</label>
+            </div>
+  
+      
+            <div class="form-floating mb-3">
+              <input formControlName="password" type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+              <label for="floatingInput">Contraseña</label>
+            </div>
+  
+            <button type="submit" style=" font-weight: bold; color: aliceblue; background-color: #186c12;" class="btn_enviar btn mb-2 ">Aceptar</button>
+  
+          </form>
+    
+          <p>Olvidaste tu Contraseña?</p>
+          <p> <ion-icon name="person-add-outline"></ion-icon> Aun no tienes cuenta? <strong>Registrate</strong></p>
+    
+          <div class="redes_sociales">
+
+  
+          </div>
+    
+        </div>
+    
       </div>
-  
+    
     </div>
-  
-  </div>
-  
+
+  }@else {
+
+
+
+      <div class="popup">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            <h3 class="text-center">
+
+              Usuario o contraseña incorrectos
+            </h3>
+          </div>
+          <button class="btn btn-danger" (click)="ocultar()" >Aceptar</button>
+        </div>
+      </div>
+      <img style="z-index: -1;" class="imagen" src="assets/FOTO.jpg">
+
+  }
+
+
   </ion-content>

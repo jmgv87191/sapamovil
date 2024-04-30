@@ -22,11 +22,11 @@ export class AgregarTomaPage implements OnInit {
   loader: boolean = false;
   cachedData: any;
   errorMessageVariable: string = '';
+  mensaje_error: boolean = true;
 
   constructor(  private fb: FormBuilder, 
     private _tomasService: TomasService,
     private router: Router,
-    private alertController: AlertController
     ) {
 
     this.form = this.fb.group({
@@ -54,10 +54,8 @@ export class AgregarTomaPage implements OnInit {
         if (error.status === 403) {
           console.error('La clave ya fue registrada por un uzzzsuario');
           this.errorMessageVariable = 'La clave ya fue registrada por un usuario';
-          console.log(this.errorMessageVariable)
-
-
-          this.presentAlert()
+          console.log(this.errorMessageVariable);
+          this.mensaje_error = false;
 
           
         } else {
@@ -82,14 +80,6 @@ export class AgregarTomaPage implements OnInit {
     this.router.navigate(['/home'])
   }
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'La clave ya fue registrada por un usuario',
-      buttons: ['Aceptar'],
-    });
-
-    await alert.present();
-  }
 
 
 }
