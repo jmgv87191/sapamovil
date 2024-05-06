@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonToast, IonButton,
-  IonModal, IonButtons,IonMenu, IonMenuButton,IonIcon, IonFooter, IonInput, IonList, IonLabel, IonItem, IonApp } from '@ionic/angular/standalone';
+          IonModal, IonButtons,IonMenu, IonMenuButton,IonIcon, IonFooter, IonInput, IonList, IonLabel, IonItem, IonApp } from '@ionic/angular/standalone';
 import { MasTomas, Tomas } from '../interfaces/tomas';
 import { TomasService } from '../services/tomas.service';
 import { CommonModule } from '@angular/common';
@@ -10,13 +10,10 @@ import { FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angula
 import { NavController } from '@ionic/angular';
 import { HeaderPage } from '../pages/header/header.page';
 
-
 import {heart,trashOutline,addCircleOutline, navigateCircleOutline, walletOutline, calendarNumberOutline, callOutline, eyeOutline} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideToastr } from 'ngx-toastr';
-
-
+import { Platform } from '@ionic/angular'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -43,6 +40,7 @@ export class HomePage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+    console.log('hola')
   }
 
   /* modal */
@@ -63,7 +61,6 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.getTomas()
-
   }
 
   public toastButtons = [
@@ -77,7 +74,10 @@ export class HomePage implements OnInit {
     private fb: FormBuilder,
     private navCtrl: NavController,
     private router: Router,
+    private platform: Platform
     ) {
+
+      this.hardReset();
 
       addIcons({heart,trashOutline,addCircleOutline, navigateCircleOutline,
       walletOutline,calendarNumberOutline,callOutline, eyeOutline})
@@ -91,30 +91,26 @@ export class HomePage implements OnInit {
 
     }
 
-/*     ionViewWillEnter() {
-      this.refreshPage();
+
+
+    hardReset(){
+      this.platform.backButton.subscribeWithPriority(140, () => {
+        console.log('Handler was called!');
+          window.location.reload();
+      });
     }
 
-    refreshPage() {
-      this.getTomas()
-
-    } */
-
   getTomas(){
-
     this._tomasService.getTomas().subscribe((data)=>{
       this.listaTomas = data;
     })
-
   }
 
   getMasTomas(id: number, open: boolean){
 
     this.loader = true;
     this._tomasService.getMasTomas( id ).subscribe((data)=>{
-      console.log('mas data', data)
 
-      
       this.masDatos ={
         alias: data.toma.alias,
         cveusu: data.toma.cveusu,
