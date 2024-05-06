@@ -29,8 +29,8 @@
 }
 
 .contimagen_logo_sapa{
-    width: 75px;
-    height: 75px;
+    width: 125px;
+    height: 125px;
     z-index: 3; 
     position: absolute;
     margin-top: 5%; 
@@ -87,7 +87,7 @@ ion-input {
 .popup{
     width: 100%;
     height: 100vh;
-    background-color: rgba(255, 0, 0, 0.317);
+    background-color: rgba(138, 126, 126, 0.589);
     overflow: hidden;
     position: absolute;
     z-index: 4;
@@ -104,6 +104,11 @@ ion-input {
     display: none;
 }
 
+.boton{
+    background-color: #00846a;
+    color: white;
+}
+
 @media (min-aspect-ratio: 8/9) {
     .formulario_inicio {
     }
@@ -114,5 +119,10 @@ ion-input {
 
     .redes_sociales{
         display: none;
+    }
+
+    .contimagen_logo_sapa{
+        width: 75px;
+        height: 75px;
     }
 }

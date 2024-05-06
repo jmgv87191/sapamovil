@@ -2,11 +2,11 @@
   <ion-toolbar >
 
     <ion-buttons slot="start" style="margin-left: 10px;"  >
-      <ion-back-button  style="color: rgb(46, 46, 46); font-weight: bolder;" defaultHref="/home" >Regresar</ion-back-button>
+      <ion-back-button  style="color: rgb(255, 255, 255); font-weight: bolder;" defaultHref="/home" >Regresar</ion-back-button>
     </ion-buttons>
 
     <ion-title class="header text-center"  >
-      <img class="logo-sapa-menu" style="width: 40px;" src="../../assets/LOGO SAPA-01.png" alt="">  
+      <img class="logo-sapa-menu" style="width: 40px;" src="../../../assets/logo_blanco.png" alt="">  
     </ion-title>
 
     <ion-buttons slot="end" style="margin-right: 10px;" >
@@ -26,7 +26,7 @@
   
       <div class="container" *ngIf="!loader" >
         <div class="card border-success mb-3" style="max-width: 20rem;">
-          <div class="card-header text-center" style="font-weight: bold;" >Agregar toma</div>
+          <div class="card-header text-center" style="font-weight: bold; color: white;" >Agregar toma</div>
           <div class="card-body">
             <div>
               
@@ -45,7 +45,7 @@
                 <div class="cont_btns"  >
                   <button  type="submit" class="btn  btn-sm boton">Aceptar</button>
 <!--                   <button (click)="regresar()" type="button" class="btn btn-danger btn-sm">Regresar</button>
- -->                </div>
+-->                </div>
     
               </form>
     
@@ -59,13 +59,13 @@
 
       <div class="cont_msj_error">
   
-        <div class="card card_error">
-          <div class="card-body text-center">
-            <h5 class="card-title ">Error</h5>
-            <p class="card-text"> La clave ya fue registrada por un usuario</p>
+        <div class="card card_error" style="border: none;">
+          <div class="card-body text-center"  >
+            <h5 class="card-title " style="color: white; font-weight: bolder;" >Error</h5>
+            <p class="card-text" style="color: white;"> La clave ya fue registrada por un usuario</p>
             <div class="cont_btns">
   
-              <button (click)="regresar()" class="btn btn-primary btn_error" > Aceptar </button>
+              <button (click)="regresar()" class="btn  btn_error"  > Aceptar </button>
             </div>
           </div>
         </div>

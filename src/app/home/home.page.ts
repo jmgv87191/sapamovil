@@ -63,6 +63,7 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.getTomas()
+
   }
 
   public toastButtons = [
@@ -90,21 +91,21 @@ export class HomePage implements OnInit {
 
     }
 
-    ionViewWillEnter() {
-      // Lógica para cargar o actualizar el contenido de la página
+/*     ionViewWillEnter() {
       this.refreshPage();
     }
 
     refreshPage() {
-      // Aquí colocas la lógica para cargar o actualizar el contenido de la página
       this.getTomas()
 
-    }
+    } */
 
   getTomas(){
+
     this._tomasService.getTomas().subscribe((data)=>{
       this.listaTomas = data;
     })
+
   }
 
   getMasTomas(id: number, open: boolean){
@@ -170,6 +171,7 @@ export class HomePage implements OnInit {
   onClick4(){
     this.router.navigate(['quejas-fugas'])
   }
+
 
 
 

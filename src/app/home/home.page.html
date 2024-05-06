@@ -3,7 +3,7 @@
   
   <ion-header >
       <h4 class="clase_menu" > 
-        <img class="logo-sapa-menu" style="width: 40px; margin-right: 20px;" src="../../assets/LOGO SAPA-01.png" alt="">  
+        <img class="logo-sapa-menu" style="width: 50px; margin-right: 20px;" src="../../assets/logo_blanco.png" alt="">  
         MENU
       </h4>
   </ion-header>
@@ -52,7 +52,7 @@
             <ion-button (click)="onClick()" style="font-weight: bold; color: custom;" >Salir</ion-button>
           </ion-buttons>
           <ion-title class="text-center" style="letter-spacing: 3px;" >
-            <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/LOGO SAPA-01.png" alt="">  
+            <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/logo_blanco.png" alt="">  
             OOMSAPAS
           </ion-title>
         </ion-toolbar>
@@ -60,7 +60,7 @@
     </div>
     
     @if (!loader) {
-      <h1 *ngIf="!loader" class="text-center  "  >Tomas registradas </h1>
+      <h1 *ngIf="!loader" class="text-center  " style="font-weight: bolder;"  >Tomas registradas </h1>
     
   
       <div class="cont_table">
@@ -104,10 +104,10 @@
           </table>
 
         }@else {
-          <div class="card text-white bg-warning mb-3" style="max-width: 20rem; margin-top: 30%; ">
-            <div class="card-header text-center">Alerta</div>
-            <div class="card-body">
-              <h4 class="card-title">No tienes tomas registradas</h4>
+          <div class="card text-white bg-warning mb-3" style="max-width: 20rem; margin-top: 30%; border: none; border-radius: 10px;">
+            <div class="card-header text-center" style="background-color: #00846a; font-weight: bolder; border: none; border-radius: 10px 10px 0 0;" >AVISO</div>
+            <div class="card-body" style="background-color: #00846a; border-radius: 0 0 10px 10px;">
+              <h4 class="card-title" >No tienes tomas registradas</h4>
             </div>
           </div>
         }
@@ -131,7 +131,7 @@
         <ion-header>
           <ion-toolbar class="text-center" >
 
-              <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/LOGO SAPA-01.png" alt="">  
+              <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/logo_blanco.png" alt="">  
 
             <ion-buttons style="visibility: hidden;" slot="end">
               <ion-button (click)="setOpen(false)">Regresar</ion-button>
@@ -171,6 +171,7 @@
         </ion-content>
         <ion-footer >
           <ion-toolbar  class="text-center" > 
+            <button   class="btn btn-lg btn-primary" type="button">Pagar</button>
           </ion-toolbar>
         </ion-footer>
       </ng-template>
