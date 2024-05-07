@@ -29,9 +29,7 @@ import { Platform } from '@ionic/angular'
 
 })
 
-
 export class HomePage implements OnInit {
-
 
   /* modal */
 
@@ -121,11 +119,10 @@ export class HomePage implements OnInit {
         nombre: data.usuario.nombre
       }
 
-      console.log(this.masDatos)
+      console.log(this.masDatos.cveusu)
 
       if (this.masDatos.estatusContrato === 'Cortado') {
         this.statusCortado = true;
-        console.log(this.statusCortado)
       } else {
         this.statusCortado = false;
         console.log(this.statusCortado)
@@ -169,7 +166,9 @@ export class HomePage implements OnInit {
   }
 
 
-
+  pagar() {
+    window.location.href =  `https://portalweb.sapalapaz.gob.mx/sapapol/${this.masDatos.cveusu}` ;
+  }
 
 
 }
