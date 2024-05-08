@@ -89,7 +89,13 @@ export class HomePage implements OnInit {
 
     }
 
+    ionViewWillEnter(){
+      this.refreshPage()
+    }
 
+    refreshPage(){
+      this.getTomas()
+    }
 
     hardReset(){
       this.platform.backButton.subscribeWithPriority(140, () => {
