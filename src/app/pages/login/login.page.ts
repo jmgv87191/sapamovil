@@ -40,8 +40,8 @@ export class LoginPage  {
     addIcons({heart,personAddOutline,logoFacebook,logoGoogle })
 
     this.form = this.fb.group({
-      email: ['jmgv87191@gmail.com', Validators.required],
-      password: ['contraseña123', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
       device_name: ['toma1', Validators.required],
     })
   }
@@ -96,7 +96,9 @@ export class LoginPage  {
       this.pantallaError = true
     }
   
-  
+    registrar() {
+      window.location.href =  `https://portaltest.sapalapaz.gob.mx/login` ;
+    }
 
 
 

@@ -30,8 +30,8 @@ export class AgregarTomaPage implements OnInit {
     ) {
 
     this.form = this.fb.group({
-      cveusu: ['11030031', Validators.required],
-      alias: ['juan', Validators.required],
+      cveusu: ['', Validators.required],
+      alias: ['', Validators.required],
     })
 
   }
