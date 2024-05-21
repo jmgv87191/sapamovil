@@ -24,7 +24,6 @@ export class LoginPage  {
   loader: boolean = false;
   pantallaError: boolean = true;
 
-
   isAlertOpen = false;
   alertButtons = ['Action'];
 
@@ -46,13 +45,9 @@ export class LoginPage  {
     })
   }
 
-
-
   errorStatus: boolean = false;
   errorMsj: any = "";
   errorMessageVariable: string = '';
-
-
 
   onLogin(form: any){
 
@@ -90,7 +85,6 @@ export class LoginPage  {
     )
 
   }
-
   
     ocultar() {
       this.pantallaError = true
@@ -99,16 +93,5 @@ export class LoginPage  {
     registrar() {
       window.location.href =  `https://portaltest.sapalapaz.gob.mx/login` ;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
