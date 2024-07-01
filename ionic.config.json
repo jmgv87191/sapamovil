@@ -1,0 +1,7 @@
+{
+  "name": "produccion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
