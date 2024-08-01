@@ -25,3 +25,155 @@
 #container a {
   text-decoration: none;
 }
+
+.cont_btns{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  position: relative;
+}
+
+table{
+  position: absolute;
+  top: 5vh;
+}
+
+ion-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  margin-right: 10px;
+}
+
+ion-item{
+  margin-bottom: 40px;
+}
+
+.progress{
+  width: 80%;
+  
+}
+
+.cont_table{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+table{
+  width: 95%;
+}
+
+.cont_loader{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clase_menu{
+  background: #00846a;
+  width: 100%;
+  height: 100px;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding: 0;
+  margin: 0;
+}
+
+.cont_header{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(158, 144, 144);
+  height: 100%;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: #00846a;
+    --color: #ffffff;
+  }
+}
+
+ion-toolbar{
+  --background: #00846a;
+}
+
+span{
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.texto-span{
+  color: rgb(182, 225, 238);
+  font-weight: normal;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.btn-recibo{
+  width: 100%;
+  padding: 10px 0; 
+  background-color: #00846a;
+  color: white;
+  font-size: 20px;
+  &:hover{
+    background-color: #005e4b;
+
+  }
+}
+
+.cont_meses{
+  border: 1px solid black;
+  width: auto;
+  display: flex;
+  height: 30%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #00846a;
+}
+
+.cont_meses_btn{
+  width: 30%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_meses{
+  background-color: #005a48;
+  margin: 20px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  border-radius: 5px;
+  &:hover{
+    background-color: #898b8b;
+
+  }
+}
+

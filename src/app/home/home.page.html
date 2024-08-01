@@ -1,20 +1,210 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
+<ion-menu  contentId="main-content">
+  
+  <ion-header >
+      <h4 class="clase_menu" > 
+        <img class="logo-sapa-menu" style="width: 50px; margin-right: 20px;" src="../../assets/logo_blanco.png" alt="">  
+        MENU
+      </h4>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content class="ion-padding"  >
+    <div class="container_aside" >
+
+      <ion-list>
+
+        <ion-item>
+          <ion-icon class="icon" name="navigate-circle-outline"></ion-icon>
+          <ion-input label="Recaudacion" (click)="onClick1()" ></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-icon class="icon" name="wallet-outline"></ion-icon>
+          <ion-input label="Pagar en linea" (click)="onClick2()"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-icon class="icon" name="calendar-number-outline"></ion-icon>
+          <ion-input label="Tandeo" (click)="onClick3()"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-icon class="icon" name="call-outline"></ion-icon>
+          <ion-input label="Quejas y fugas" (click)="onClick4()"></ion-input>
+        </ion-item>
+  
+      
+  
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>
+
+  <ion-content  >
+    
+    <div id="main-content" >
+      <ion-header >
+        <ion-toolbar >
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-buttons  slot="end">
+            <ion-button (click)="onClick()" style="font-weight: bold; color: custom;" >Salir</ion-button>
+          </ion-buttons>
+          <ion-title class="text-center" style="letter-spacing: 3px;" >
+            <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/logo_blanco.png" alt="">  
+            OOMSAPAS
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+    
+    @if (!loader) {
+      <h1 *ngIf="!loader" class="text-center  " style="font-weight: bolder;"  >Tomas registradas </h1>
+    
+  
+      <div class="cont_table">
+
+        @if ( listaTomas.length > 0 ) {
+          <table class="table table-hover" style="margin-top: 40%;">
+      
+              <thead *ngIf="!loader" >
+                <tr>
+                  <th class="text-center" scope="col">Clave de usuario</th>
+                  <th class="text-center" scope="col">Alias</th>
+                  <th class="text-center" scope="col"></th>
+                </tr>
+              </thead>
+              
+              <tbody *ngIf="!loader" >
+        
+                @for (item of listaTomas; track $index) {
+        
+                  <tr class="table-secondary">
+                    <td class="text-center"> {{ item.cveusu }} </td>
+                    <td  class="text-center">  {{ item.alias }} </td>
+                    <td class="cont_btns" > 
+                      <button style="background-color: transparent;" type="button" (click)="getMasTomas(item.id!, true)"><ion-icon style="color: rgb(14, 85, 14); font-size: 30px;" name="eye-outline"></ion-icon> </button>
+                      <button style="background-color: transparent;" id="open-toast" (click)="deleteTomas(item.id!)" type="button"><ion-icon style="color: rgb(182, 42, 42); font-size: 30px;" name="trash-outline"></ion-icon> </button>
+                    </td>
+                  </tr>
+        
+                  <ion-toast
+                    trigger="open-toast"
+                    [duration]="3000"
+                    message="Toma eliminada"
+                    class="custom-toast"
+                    [buttons]="toastButtons"
+                  ></ion-toast>
+        
+                }
+            
+              </tbody>
+      
+          </table>
+
+        }@else {
+          <div class="card text-white bg-warning mb-3" style="max-width: 20rem; margin-top: 30%; border: none; border-radius: 10px;">
+            <div class="card-header text-center" style="background-color: #00846a; font-weight: bolder; border: none; border-radius: 10px 10px 0 0;" >AVISO</div>
+            <div class="card-body" style="background-color: #00846a; border-radius: 0 0 10px 10px;">
+              <h4 class="card-title" >No tienes tomas registradas</h4>
+            </div>
+          </div>
+        }
+  
+      </div>
+
+    }@else{
+      <div class="cont_loader">
+
+        <div *ngIf="loader"  class="progress" > 
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+        </div>
+      </div>
+
+    }
+    
+      <!-- ion modal -->
+
+    
+    <ion-modal [isOpen]="isModalOpen"  >
+      <ng-template>
+        <ion-header>
+          <ion-toolbar class="text-center" >
+
+              <img class="logo-sapa-menu" style="width: 40px; " src="../../assets/logo_blanco.png" alt="">  
+
+            <ion-buttons style="visibility: hidden;" slot="end">
+              <ion-button (click)="setOpen(false)">Regresar</ion-button>
+            </ion-buttons>
+
+            <ion-buttons slot="start">
+              <ion-button (click)="setOpen(false)">Regresar</ion-button>
+            </ion-buttons>
+
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <p>
+              
+          </p>
+          <div class="card mb-3">
+            <h3 style="margin-bottom: 5vh;" class="card-header text-center">{{ masDatos.alias }}</h3>
+  
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> <span>Nombre:  </span>  <span class="texto-span" >{{ masDatos.nombre }}</span>  </li>
+              <li class="list-group-item"> <span>Direccion:  </span>  <span class="texto-span">{{ masDatos.direccion }} </span> </li>
+              <li class="list-group-item"> <span>Clave de usuario:  </span >  <span class="texto-span">{{ masDatos.cveusu }}</span>  </li>
+              
+              @if ( statusCortado  ) {
+                <li class="list-group-item"> <span>Estatus:  </span>   <span style="color: red;" class="texto-span">{{ masDatos.estatusContrato }}</span> </li>
+              }@else{
+                <li class="list-group-item"> <span>Estatus:  </span>   <span class="texto-span">{{ masDatos.estatusContrato }}</span> </li>
+              }
+              <li class="list-group-item"> <span>Adeudo:  </span>  <span class="texto-span">{{ masDatos.mesesAdeudo }}</span>  </li>
+              <li class="list-group-item"> <span>Saldo:  </span>   <span class="texto-span">{{ masDatos.saldo }}</span> </li>
+            </ul>
+  
+            <div class="card-footer text-muted text-end">
+              {{ currentDate | date: 'dd/MM/yyyy' }}
+            </div>
+          </div>
+
+
+          <div class="text-center"  >
+            <h3>Recibos</h3>
+          </div>
+          
+
+          <div class="cont_meses">
+              @for (item of meses ; track $index) {
+                <div class="cont_meses_btn" >
+                  <button  (click)="downloadRecibo( masDatos.cveusu, item.valor)" class="btn_meses"  type="button"> {{ item.mes }} </button>
+                </div>
+              }
+
+          </div>
+
+        </ion-content>
+        <ion-footer >
+          <ion-toolbar  class="text-center" > 
+            <button class="btn btn-lg btn-primary" type="button" (click)="pagar()" >Pagar</button>
+          </ion-toolbar>
+        </ion-footer>
+      </ng-template>
+      
+    </ion-modal>
+  
+      <!-- ! ion modal -->
+
+  </ion-content>
+
+  <ion-footer >
+    <ion-toolbar  class="text-center" > 
+        <button  routerLink="/agregar-toma" class="btn btn-lg btn-primary" type="button">Agregar toma</button>
+    </ion-toolbar>
+  </ion-footer>
+
+
+
+

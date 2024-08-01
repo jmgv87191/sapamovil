@@ -1,0 +1,138 @@
+.cont_principal {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.imagen{
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    position: absolute; 
+}
+
+.formulario_inicio{
+    width: 80%;
+    max-height: 80%;
+    min-height: 80%;
+    overflow: auto;
+    z-index: 2; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(195, 195, 195, 0.472);
+}
+
+.contimagen_logo_sapa{
+    width: 125px;
+    height: 125px;
+    z-index: 3; 
+    position: absolute;
+    margin-top: 5%; 
+}
+
+.imagen_logo_sapa{
+    height: 100%;
+}
+
+.cont_inputs_login{
+    min-width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    z-index: 3; 
+    position: absolute;
+    margin-top: 50%;
+
+}
+
+ion-input {
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    color: black;
+    z-index: 3;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.boton{
+    width: 100%;
+    border-radius: 0;
+}
+
+.redes_sociales{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-redes-sociales{
+    width: 45%;
+}
+
+.btn_enviar{
+    width: 100%;
+}
+
+.popup{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(138, 126, 126, 0.589);
+    overflow: hidden;
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ocultar{
+    display: none;
+}
+
+.mostrar{
+    display: none;
+}
+
+.boton{
+    background-color: #00846a;
+    color: white;
+}
+
+a{ 
+    text-decoration: none;
+}
+
+@media (min-aspect-ratio: 8/9) {
+    .formulario_inicio {
+    }
+
+    p{
+        display: none;
+    }
+
+    .redes_sociales{
+        display: none;
+    }
+
+    .contimagen_logo_sapa{
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        background-color: lightgreen;
+    }
+}

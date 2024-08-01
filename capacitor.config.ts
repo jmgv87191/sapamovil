@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'produccion',
+  appId: 'mx.gob.oomsapaslapaz.sapamovil',
+  appName: 'Sapa Movil',
   webDir: 'www'
 };
 

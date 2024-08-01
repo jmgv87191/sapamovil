@@ -1,0 +1,87 @@
+<ion-header  >
+  <ion-toolbar >
+
+    <ion-buttons slot="start" style="margin-left: 10px;"  >
+      <ion-back-button  style="color: rgb(255, 255, 255); font-weight: bolder;" defaultHref="/home" >Regresar</ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="header text-center"  >
+      <img class="logo-sapa-menu" style="width: 40px;" src="../../../assets/logo_blanco.png" alt="">  
+    </ion-title>
+
+    <ion-buttons slot="end" style="margin-right: 10px;" >
+      <ion-back-button  style="visibility: hidden;" defaultHref="/home" >Regresar</ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  @if (!loader) {
+
+    @if (mensaje_error) {
+  
+      <div class="container" *ngIf="!loader" >
+        <div class="card border-success mb-3" style="max-width: 20rem;">
+          <div class="card-header text-center" style="font-weight: bold; color: white;" >Agregar toma</div>
+          <div class="card-body">
+            <div>
+              
+              <form action="" [formGroup]="form" (ngSubmit)="addToma()" >
+    
+                <div class="form-floating mb-3">
+                  <input formControlName="cveusu" type="text" class="form-control" id="floatingInput" placeholder="Clave de usuario">
+                  <label for="floatingInput">Clave de usuario</label>
+                </div>
+      
+                <div class="form-floating mb-3">
+                  <input formControlName="alias" type="text" class="form-control" id="floatingInput" placeholder="Alias">
+                  <label for="floatingInput">Alias</label>
+                </div>
+      
+                <div class="cont_btns"  >
+                  <button  type="submit" class="btn  btn-sm boton">Aceptar</button>
+<!--                   <button (click)="regresar()" type="button" class="btn btn-danger btn-sm">Regresar</button>
+-->                </div>
+    
+              </form>
+    
+    
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    }@else {
+
+      <div class="cont_msj_error">
+  
+        <div class="card card_error" style="border: none;">
+          <div class="card-body text-center"  >
+            <h5 class="card-title " style="color: white; font-weight: bolder;" >Error</h5>
+            <p class="card-text" style="color: white;"> La clave ya fue registrada por un usuario</p>
+            <div class="cont_btns">
+  
+              <button (click)="regresar()" class="btn  btn_error"  > Aceptar </button>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    }
+  }@else {
+    
+    <div class="progress_content">
+
+      <div class="progress" style="width: 80%;" >
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+      </div>   
+    </div>
+  }
+
+  
+</ion-content>
+

@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.cont_btns{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.cont_msj_error{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.card_error{
+    margin-top: 40%;
+    height: 20%;
+    width: 90%;
+    background-color: #00846a;
+}
+
+.btn_error{
+    display: flex;
+    justify-content: center;
+    background-color:#11ac8d ;
+    border: none;
+    color: white;
+}
+.cont_btns_error{
+    display: flex;
+    justify-content: center;
+}
+
+.progress_content{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ion-toolbar{
+    --background: #00846a;
+    --color: #ffffff;
+}
+
+
+.boton{
+    width: 100%; 
+    background-color: #00846a; 
+    color: #303030;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: white;
+}
