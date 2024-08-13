@@ -177,3 +177,13 @@ a{
   }
 }
 
+.home__footer{
+  margin: 0 auto 40vh auto;
+  text-align: center;
+}
+
+.home__footer ion-toolbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
