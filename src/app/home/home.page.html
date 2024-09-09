@@ -38,26 +38,16 @@
       </ion-list>
     </div>
 
+    <ion-footer class="home__footer" >
+      <ion-toolbar>
+        <a href="https://www.facebook.com/sapalapaz/?locale=es_LA">         <i class="fa-brands fa-facebook"></i>
+          Sapa</a>
+      </ion-toolbar>
+    </ion-footer>
+
   </ion-content>
   
-  <ion-footer class="home__footer" >
-    <ion-toolbar>
-      <a href="https://www.facebook.com/sapalapaz/?locale=es_LA">         <i class="fa-brands fa-facebook"></i>
-        Sapa</a>
-    </ion-toolbar>
-  </ion-footer>
-
-
-
-
-
 </ion-menu>
-
-
-
-
-
-
 
   <ion-content  >
     
@@ -99,8 +89,8 @@
         
                 @for (item of listaTomas; track $index) {
         
-                  <tr class="table-secondary">
-                    <td class="text-center"> {{ item.cveusu }} </td>
+                  <tr class="table-secondary ">
+                    <td class="text-center"  > {{ item.cveusu }}  </td>
                     <td  class="text-center">  {{ item.alias }} </td>
                     <td class="cont_btns" > 
                       <button style="background-color: transparent;" type="button" (click)="getMasTomas(item.id!, true)"><ion-icon style="color: rgb(14, 85, 14); font-size: 30px;" name="eye-outline"></ion-icon> </button>
